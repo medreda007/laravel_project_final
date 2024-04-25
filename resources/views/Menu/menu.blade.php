@@ -1,6 +1,6 @@
-@extends('layouts.index')
+@extends('layouts.index2')
 
-@section('main')
+@section('content')
     <section>
         <div class="flex justify-center items-center flex-col p-5">
             @foreach ($Menus as $menu)
@@ -8,9 +8,9 @@
                     <h1>{{ $menu->name }}</h1>
                     <h1>{{ $menu->price }}</h1>
                     <h1>{{ $menu->description }}</h1>
-                    <a href="{{ route('checkin.index',$menu->id) }}">
-                        <button class="border rounded-lg w-10">BUY</button>
-                    </a>
+                    <form action="{{ route('cart.add', $menu->id) }}" method="POST">
+                        @csrf <button class="border rounded-lg w-10">Add to Cart</button>
+                    </form>
                 </div>
             @endforeach
         </div>

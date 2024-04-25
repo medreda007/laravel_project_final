@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('table_number');
             $table->integer('capacity');
-            $table->integer('price');
             $table->string('status')->default('available');
             $table->timestamps();
         });

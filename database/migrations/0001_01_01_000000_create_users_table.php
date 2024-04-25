@@ -20,7 +20,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('client');
-            // $table->foreignId("menu_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

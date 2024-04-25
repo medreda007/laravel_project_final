@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Menu;
+use App\Mail\ReservationUpdate;
+use App\Models\Reservation;
+use App\Models\Table;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
-class CheckinController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        if (!Auth::check()) {
-            // Redirect to the login or registration page
-            return redirect()->route('login');
-        }
-        return view('Checkin.checkin');
+        $reservations = Reservation::all();
+        $tables = Table::all();
+        return view('Staff.staff',compact("reservations", "tables"));
     }
 
     /**
@@ -55,9 +55,14 @@ class CheckinController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateTable(Request $request , Reservation $reservation)
     {
         //
+        
+        $reservation->table_id=$request->table_id;
+        $reservation->save();
+        Mail::to($reservation->user->email)->send(new ReservationUpdate($reservation));
+        return redirect()->back();
     }
 
     /**

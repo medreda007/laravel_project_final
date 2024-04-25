@@ -11,7 +11,6 @@ class Table extends Model
     protected $fillable = [
         "table_number",
         "capacity",
-        "price",
         "status",
     ];
     

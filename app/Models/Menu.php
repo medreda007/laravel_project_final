@@ -13,9 +13,10 @@ class Menu extends Model
         "description",
         "price",
         "image",
-        "user_id",
     ];
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'cart')
+                    ->withPivot('quantity');
     }
 }

@@ -22,18 +22,22 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        // 'menu_id',
     ];
 
     public function menus()
     {
-        return $this->hasMany(Menu::class);
+        return $this->belongsToMany(Menu::class, 'carts')
+                    ->withPivot('quantity');
     }
+    // public function cart (){
+    //     return $this->hasMany(Cart::class);
+    // }
     
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
     }
+
 
     /**
      * The attributes that should be hidden for serialization.

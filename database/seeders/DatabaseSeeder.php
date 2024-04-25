@@ -53,7 +53,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Classic pizza with tomato sauce, mozzarella, and basil.',
                 'price' => 12,
                 'image' => 'pizza_margherita.jpg',
-                'user_id' => null, // Ensure that a user with ID 1 exists in the 'users' table
+                // 'user_id' => null, // Ensure that a user with ID 1 exists in the 'users' table
+                // "quantity" => null,
                 'created_at' => Carbon::now(),
             ],
             [
@@ -61,7 +62,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Salad with romaine lettuce, croutons, and Caesar dressing.',
                 'price' => 8,
                 'image' => 'caesar_salad.jpg',
-                'user_id' => null, // Ensure that a user with ID 2 exists in the 'users' table
+                // 'user_id' => null, // Ensure that a user with ID 2 exists in the 'users' table
+                // "quantity" => null,
                 'created_at' => Carbon::now(),
             ]
         ]);
@@ -69,37 +71,31 @@ class DatabaseSeeder extends Seeder
             [
                 'table_number' => 'T1',
                 'capacity' => 4,
-                'price' => 20,
                 'status' => 'available'
             ],
             [
                 'table_number' => 'T2',
                 'capacity' => 2,
-                'price' => 15,
                 'status' => 'available'
             ],
             [
                 'table_number' => 'T3',
                 'capacity' => 6,
-                'price' => 30,
                 'status' => 'not available'
             ],
             [
                 'table_number' => 'T4',
                 'capacity' => 8,
-                'price' => 40,
                 'status' => 'available'
             ],
             [
                 'table_number' => 'T5',
                 'capacity' => 10,
-                'price' => 50,
                 'status' => 'available'
             ],
             [
                 'table_number' => 'T6',
                 'capacity' => 4,
-                'price' => 60,
                 'status' => 'available'
             ],
         ]);
