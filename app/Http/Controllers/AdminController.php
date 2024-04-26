@@ -18,9 +18,15 @@ class AdminController extends Controller
         $Users = User::where('role', '!=', 'admin')->get();
         $Staffs = User::role('staff')->get();
         $Tables = Table::all();
-        $Menus = Menu::all();
+        // breakfast menu
+        $Breakfast = Menu::where('category', 'breakfast')->get();
+        // lunch menu
+        $Lunch = Menu::where('category', 'lunch')->get();
+        // dinner menu
+        $Dinner = Menu::where('category', 'dinner')->get();
+
         $Reservations = Reservation::all();
-        return view('Admin.admin', compact('Users', 'Staffs', 'Tables', 'Menus', 'Reservations'));
+        return view('Admin.admin', compact('Users', 'Staffs', 'Tables', 'Breakfast','Lunch','Dinner', 'Reservations'));
     }
 
     /**
@@ -35,11 +41,24 @@ class AdminController extends Controller
     public function promote($id)
     {
         $user = User::find($id);
+        $user->removeRole('client');
         $user->assignRole('staff');
 
         $user->update([
             "role" => "staff",
         ]);
+        return redirect()->back();
+    }
+
+    public function demote ($id) {
+        $user = User::find($id);
+        $user->removeRole('staff');
+        $user->assignRole('client');
+
+        $user->update([
+            "role" => "client",
+        ]);
+
         return redirect()->back();
     }
 
@@ -75,8 +94,9 @@ class AdminController extends Controller
         //
         request()->validate([
             "name" => "required",
-            "price" => "required",
+            "price" => "required | integer",
             "description" => "required",
+            "category" => "required|in:breakfast,lunch,dinner",
         ]);
         if ($request->image) {
             $image = $request->file("image");
@@ -87,12 +107,14 @@ class AdminController extends Controller
                 "price" => $request->price,
                 "description" => $request->description,
                 "image" => $imageName,
+                "category" => $request->category,
             ]);
         }
         Menu::create([
             "name" => $request->name,
             "price" => $request->price,
             "description" => $request->description,
+            "category" => $request->category,
         ]);
 
         return redirect()->back();

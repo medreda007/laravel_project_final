@@ -13,6 +13,7 @@ class Menu extends Model
         "description",
         "price",
         "image",
+        "category",
     ];
     public function users()
     {

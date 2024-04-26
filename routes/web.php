@@ -20,12 +20,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// && admin start
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware("role:admin");
-Route::post('admin/create/table', [AdminController::class, 'storeTable'])->name('table.create');
-Route::post('/menu/create', [AdminController::class,'storeMenu'])->name('menu.create');
-Route::put('/menu/edit/{menu}', [AdminController::class, 'editMenu'])->name('menu.edit');
-// && admin end
+
 
 // !staff start
 Route::get('/staff', [StaffController::class, 'index'])->name('staff.index')->middleware(["role:staff|admin"]);
@@ -38,6 +33,16 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 // ^^ menu end
 
 Route::middleware('auth')->group(function () {
+    // && admin start
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware("role:admin");
+    Route::post('admin/create/table', [AdminController::class, 'storeTable'])->name('table.create');
+    Route::post('/menu/create', [AdminController::class, 'storeMenu'])->name('menu.create');
+    Route::put('/menu/edit/{menu}', [AdminController::class, 'editMenu'])->name('menu.edit');
+
+    // promote / demote users to staff
+    Route::post('/promote/{id}', [AdminController::class, 'promote'])->name('profil.promote');
+    Route::post('/demote/{id}', [AdminController::class, 'demote'])->name('profil.demote');
+    // && admin end
 
     // ? reservation start
     Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
@@ -56,19 +61,24 @@ Route::middleware('auth')->group(function () {
     // * order / cart end
 
 
-    Route::get('/test', [ProfileController::class, 'test'])->name('home.test');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// promote users to staff
-Route::post('/promote/{id}', [AdminController::class, 'promote'])->name('profil.promote');
+Route::get('/test', [ProfileController::class, 'test'])->name('home.test');
 
 // ~~ stripe route start
 Route::get('/session', [StripeController::class, 'session'])->name('stripe.session');
 Route::get('/success', [StripeController::class, 'success'])->name('success');
 // ~~ stripe route ends 
 
+Route::get('/contact', function () {
+    return view('Contact.contact');
+})->name('contact.index');
+
+Route::get('/about', function () {
+    return view('About.about');
+})->name('about.index');
 
 require __DIR__ . '/auth.php';

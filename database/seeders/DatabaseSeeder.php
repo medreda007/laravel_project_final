@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         
+
+        
         Role::insert([
             [
                 "name" => "admin",
@@ -47,57 +49,13 @@ class DatabaseSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        Menu::insert([
-            [
-                'name' => 'Pizza Margherita',
-                'description' => 'Classic pizza with tomato sauce, mozzarella, and basil.',
-                'price' => 12,
-                'image' => 'pizza_margherita.jpg',
-                // 'user_id' => null, // Ensure that a user with ID 1 exists in the 'users' table
-                // "quantity" => null,
-                'created_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'Caesar Salad',
-                'description' => 'Salad with romaine lettuce, croutons, and Caesar dressing.',
-                'price' => 8,
-                'image' => 'caesar_salad.jpg',
-                // 'user_id' => null, // Ensure that a user with ID 2 exists in the 'users' table
-                // "quantity" => null,
-                'created_at' => Carbon::now(),
-            ]
+
+        $this->call([
+            MenuSeeder::class,
+            TableSeeder::class,
         ]);
-        Table::insert([
-            [
-                'table_number' => 'T1',
-                'capacity' => 4,
-                'status' => 'available'
-            ],
-            [
-                'table_number' => 'T2',
-                'capacity' => 2,
-                'status' => 'available'
-            ],
-            [
-                'table_number' => 'T3',
-                'capacity' => 6,
-                'status' => 'not available'
-            ],
-            [
-                'table_number' => 'T4',
-                'capacity' => 8,
-                'status' => 'available'
-            ],
-            [
-                'table_number' => 'T5',
-                'capacity' => 10,
-                'status' => 'available'
-            ],
-            [
-                'table_number' => 'T6',
-                'capacity' => 4,
-                'status' => 'available'
-            ],
-        ]);
+
+        
+        
     }
 }

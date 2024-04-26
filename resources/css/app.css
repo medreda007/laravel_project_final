@@ -4,7 +4,7 @@
 
 
 
-.nav {
+/* .nav {
     height: 50px;
     width: 100%;
     display: flex;
@@ -103,7 +103,7 @@
         height: calc(100vh - 50px);
         overflow-y: auto;
     }
-}
+} */
 /* 
 h1,
 p {
@@ -183,3 +183,10 @@ h2 {
 .nav-item a:hover {
     color: #3498db;
 } */
+
+.promote-btn {
+background:linear-gradient(to right, #bf943fbf, #FCF6BA, #b38728c8);
+}
+.nav-btn {
+background:linear-gradient(to right, #bf943fbf, #ede7a3, #b38728c8);
+}

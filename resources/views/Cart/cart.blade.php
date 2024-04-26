@@ -1,6 +1,6 @@
-@extends('layouts.index')
+@extends('layouts.index2')
 
-@section('main')
+@section('content')
     <h2>Your Cart</h2>
 
     @foreach (Auth::user()->menus as $cart)

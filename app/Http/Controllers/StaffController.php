@@ -61,6 +61,7 @@ class StaffController extends Controller
         
         $reservation->table_id=$request->table_id;
         $reservation->save();
+
         Mail::to($reservation->user->email)->send(new ReservationUpdate($reservation));
         return redirect()->back();
     }
