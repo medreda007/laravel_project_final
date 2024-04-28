@@ -20,7 +20,7 @@
                     </h1>
                 </div>
                 <div
-                    class="border flex flex-col items-center justify-center rounded-lg border-black border-opacity-10 p-10 min-h-[40vh]">
+                    class="border flex flex-col items-center justify-center rounded-lg border-black border-opacity-10 p-10 min-h-[40vh] bg-zinc-50">
                     @foreach ($Users as $user)
                         <div class="flex  justify-around w-full lg:gap-x-28 pb-3">
                             <h4 class="font-bold lg:w-1/3 text-xl">
@@ -49,7 +49,7 @@
                     </h1>
                 </div>
                 <div
-                    class="border flex flex-col items-center justify-center rounded-lg border-black border-opacity-10 p-10  min-h-[40vh]">
+                    class="border flex flex-col items-center justify-center rounded-lg border-black border-opacity-10 p-10 bg-zinc-50 min-h-[40vh]">
                     @foreach ($Staffs as $staff)
                         <div class="flex  justify-around w-full lg:gap-x-28 pb-3">
                             <h1 class="font-bold lg:w-1/3 text-xl">
@@ -77,9 +77,9 @@
                     All reservations :
                 </h1>
             </div>
-            <div class="min-w-[82vw] border rounded-lg border-black border-opacity-10 p-10   min-h-[40vh]">
+            <div class="min-w-[82vw] border rounded-lg border-black border-opacity-10 p-10 bg-zinc-50  min-h-[40vh]">
                 @foreach ($Reservations as $reservation)
-                    <div class="flex justify-center gap-x-28 p-4">
+                    <div class="flex justify-center gap-x-28 text-xl p-4">
                         <h1>
                             {{ $reservation->user->name }}
                         </h1>
@@ -95,6 +95,11 @@
                         <h3>
                             {{ $reservation->timeEnd }}
                         </h3>
+                        <form action="{{ route('delete.reservation', $reservation) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-red-600 rounded-md px-4 py-1 text-white">cancel</button>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -112,16 +117,20 @@
             </h1>
             <div class="min-w-[82vw] border rounded-lg border-black border-opacity-10 p-10   min-h-[60vh]">
                 @foreach ($Tables as $table)
-                    <div class="flex justify-between py-3">
+                    <div class="flex justify-around py-3">
                         <h1 class="font-bold">
                             <span class="font-medium">Table number :</span> {{ $table->table_number }}
                         </h1>
                         <h3 class="font-bold">
                             <span class="font-medium">Table capacity :</span> {{ $table->capacity }}
                         </h3>
-                        <h3 class="font-bold">
-                            <span class="font-medium">Table status :</span> {{ $table->status }}
-                        </h3>
+                        <form action="{{ route('table.delete',$table) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="py-2 px-3 rounded bg-red-500 text-white w-full">
+                                Delete
+                            </button>
+                        </form>
                     </div>
                 @endforeach
                 {{-- table create --}}
@@ -129,39 +138,44 @@
                     <h1 class="text-3xl ">
                         Add a new table :
                     </h1>
-                    <button id="clickMe" type="button" class="bg-purple-700 ms-2 p-2 px-4 rounded-md text-white"
-                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add
-                    </button>
+
                 </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog ">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body ">
-                                <form action="{{ route('table.create') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="flex flex-col gap-4 justify-center gap-x-28 ">
-                                        <input type="string" class="border" name="table_number" id="">
-                                        <input type="number" class="border" name="capacity" id="">
-                                        <input type="file" class="border" name="image" id="">
-                                        <button type="submit">
-                                            Create
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+
+            </div>
+            <div class="py-5 lg:max-w-md lg:w-[40vw]">
+                <form  action="{{ route('table.create') }}" method="POST" enctype="multipart/form-data"
+                    class="mx-auto max-w-md p-4 bg-white rounded-md shadow-md">
+                    @csrf
+                    <h1 class="text-xl font-bold mb-4">New Table:</h1>
+                    <div class="flex flex-col gap-4">
+
+                        <!-- Input for Table Number -->
+                        <input type="text"
+                            class="border rounded-md p-2 w-full focus:outline-none focus:border-purple-500 transition duration-200"
+                            name="table_number" id="table_number" placeholder="Table Number" required>
+
+                        <!-- Input for Capacity -->
+                        <input type="number"
+                            class="border rounded-md p-2 w-full focus:outline-none focus:border-purple-500 transition duration-200"
+                            name="capacity" id="capacity" placeholder="Capacity" required>
+
+                        <!-- Input for Image -->
+                        {{-- <input type="file"
+                            class="border rounded-md p-2 w-full focus:outline-none focus:border-purple-500 transition duration-200"
+                            name="image" id="image" required> --}}
+
+                        <!-- Add Button -->
+                        <button id="clickMe" type="submit"
+                            class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition duration-200 w-full">
+                            Add
+                        </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        {{-- end all tables --}}
+    </div>
+    {{-- end all tables --}}
 
 
     </div>

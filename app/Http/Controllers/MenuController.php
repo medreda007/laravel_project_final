@@ -14,7 +14,13 @@ class MenuController extends Controller
     {
         //
         $Menus = Menu::all();
-        return view('Menu.menu', compact('Menus'));
+        $Breakfast = Menu::where('category', 'breakfast')->get();
+        // lunch menu
+        $Lunch = Menu::where('category', 'lunch')->get();
+        // dinner menu
+        $Dinner = Menu::where('category', 'dinner')->get();
+
+        return view('Menu.menu', compact('Menus','Breakfast','Lunch','Dinner'));
     }
 
     

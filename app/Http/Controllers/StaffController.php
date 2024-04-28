@@ -69,8 +69,9 @@ class StaffController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request , Reservation $reservation)
     {
-        //
+        $reservation->delete();
+        return redirect()->back();
     }
 }

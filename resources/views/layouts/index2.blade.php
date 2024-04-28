@@ -9,13 +9,12 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 </head>
 
-<body class="bg-zinc-200">
+<body class="bg-zinc-200 font-serif">
 
-    <header
-        class='flex shadow-md lg:px-12 p-4 sm:px-10 bg-neutral-900 font-sans min-h-[70px] tracking-wide relative z-50'>
+    <header class='flex shadow-md lg:px-12 p-4 sm:px-10 bg-neutral-900 font-sans min-h-[70px] tracking-wide fixed z-50 '>
         <div class='flex flex-wrap items-center justify-between gap-4 w-full'>
             <a class="flex items-center h-full" href="javascript:void(0)">
-                <svg width="250" height="35.1351718079709" viewBox="0 0 350 43.31258670502137" class="looka-1j8o68f">
+                <svg width="200" height="35.1351718079709" viewBox="0 0 350 43.31258670502137" class="looka-1j8o68f">
                     <defs id="SvgjsDefs1950">
                         <linearGradient id="SvgjsLinearGradient1953">
                             <stop id="SvgjsStop1954" stop-color="#905e26" offset="0"></stop>
@@ -47,14 +46,12 @@
                 </button>
 
                 <ul
-                    class='lg:flex gap-x-5 max-lg:space-y-3 lg:me-20 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
+                    class='lg:flex gap-x-5 max-lg:space-y-3 lg:me-20 max-lg:fixed max-lg:bg-neutral-600 max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
                     <li class='mb-6 hidden max-lg:block'>
-                        <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo"
-                                class='w-36' />
-                        </a>
+                        
                     </li>
                     <li class='max-lg:border-b max-lg:py-3 px-3'>
-                        <a href="{{ route('home.test') }}"
+                        <a href="{{ route('home.index') }}"
                             class='hover:text-[#C7AE6A] text-[#C7AE6A] font-bold block text-base'>Home</a>
                     </li>
                     <li class='max-lg:border-b max-lg:py-3 px-3'><a href="{{ route('menu.index') }}"
@@ -78,24 +75,28 @@
             <div class='flex items-center max-lg:ml-auto space-x-5 text-white'>
                 @auth
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
-                        class="cursor-pointer fill-gray-300  hover:fill-[#C7AE6A] inline">
-                        <circle cx="10" cy="7" r="6" data-original="#000000" />
-                        <path
-                            d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-                            data-original="#000000" />
-                    </svg>
-
-                    <span class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
-                            class="cursor-pointer fill-gray-300 hover:fill-[#C7AE6A] inline" viewBox="0 0 512 512">
+                    <a href="{{ route('profile.edit') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
+                            class="cursor-pointer fill-gray-300  hover:fill-[#C7AE6A] inline">
+                            <circle cx="10" cy="7" r="6" data-original="#000000" />
                             <path
-                                d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
-                                data-original="#000000"></path>
+                                d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                                data-original="#000000" />
                         </svg>
-                        <span
-                            class="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">0</span>
-                    </span>
+                    </a>
+
+                    <a href="{{ route('cart.index') }}">
+                        <span class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                                class="cursor-pointer fill-gray-300 hover:fill-[#C7AE6A] inline" viewBox="0 0 512 512">
+                                <path
+                                    d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
+                                    data-original="#000000"></path>
+                            </svg>
+                            <span
+                                class="absolute left-auto -ml-1 top-0 rounded-full bg-purple-800 px-1 py-0 text-xs text-white">0</span>
+                        </span>
+                    </a>
 
                     <button id="toggleOpen" class='lg:hidden !ml-7'>
                         <svg class="w-7 h-7 fill-slate-50" fill="#000" viewBox="0 0 20 20"
@@ -107,14 +108,20 @@
                     </button>
                 @endauth
                 @guest
-                    <button class="nav-btn py-2 text-neutral-800 px-4 bg-[#C7AE6A] hover:text-purple-950 rounded-lg hover:bg-[#b89e5e] mr-2"
-                        onclick="window.location.href='/login'">
-                        Log in
-                    </button>
-                    <button class="nav-btn py-2 text-neutral-800 px-4 bg-[#C7AE6A] hover:text-purple-950 rounded-lg hover:bg-[#b89e5e]"
-                        onclick="window.location.href='/signup'">
-                        Sign Up
-                    </button>
+                    <a href="{{ route('login') }}">
+                        <button
+                            class="nav-btn py-2 text-neutral-800 px-4 bg-[#C7AE6A] hover:text-purple-950 rounded-lg hover:bg-[#b89e5e] mr-2"
+                            onclick="window.location.href='/login'">
+                            Log in
+                        </button>
+                    </a>
+                    <a href="{{ route('register') }}">
+                        <button
+                            class="nav-btn py-2 text-neutral-800 px-4 bg-[#C7AE6A] hover:text-purple-950 rounded-lg hover:bg-[#b89e5e]"
+                            onclick="window.location.href='/signup'">
+                            Sign Up
+                        </button>
+                    </a>
                 @endguest
             </div>
         </div>

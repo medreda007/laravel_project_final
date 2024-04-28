@@ -5,7 +5,6 @@
 @section('main')
     <div class="flex justify-center">
         <div class="h-1/2 w-1/2 bg-zinc-200 p-4 border rounded-lg" id="calendar">
-
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', async function() {

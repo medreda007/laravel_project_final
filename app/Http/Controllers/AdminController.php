@@ -73,7 +73,6 @@ class AdminController extends Controller
             "capacity" => "required",
         ]);
         if ($request->image) {
-
             $image = $request->file("image");
             $imageName = time() . "_" . $image->getClientOriginalName();
             $image->storeAs("public/img", $imageName);
@@ -149,6 +148,7 @@ class AdminController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
+                'category' => $request->category,
                 'image' => $imageName,
             ]);
         } else {
@@ -156,6 +156,7 @@ class AdminController extends Controller
             $menu->update([
                 'name' => $request->name,
                 'description' => $request->description,
+                'category' => $request->category,
                 'price' => $request->price,
             ]);
         }
@@ -175,8 +176,16 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, Menu $menu)
     {
         //
+        $menu->delete();
+        return redirect()->back();
+    }
+    public function destroyTable(Request $request, Table $table)
+    {
+        //
+        $table->delete();
+        return redirect()->back();
     }
 }

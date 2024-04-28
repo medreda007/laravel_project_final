@@ -41,7 +41,7 @@
                     <label for="">end time</label>
                     <input name="timeEnd" id="time-end" type="time">
 
-                    <button class="w-f py-3 bg-purple-950">book</button>
+                    <button class="w-f py-3 nav-btn hover:bg-purple-950 rounded-md text-white ">book</button>
                 </form>
 
             </div>

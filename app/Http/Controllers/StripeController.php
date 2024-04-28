@@ -19,9 +19,9 @@ class StripeController extends Controller
         Stripe::setApiKey(config('stripe.sk'));
 
 
-        $userCart = Cart::where('user_id', Auth::user()->id)->get();
-        $totalCartQuantity = Cart::where('user_id', Auth::user()->id)->sum('quantity');
-        $totalCartPrice = Cart::where('user_id', Auth::user()->id)->sum('price');
+        // $userCart = Cart::where('user_id', Auth::user()->id)->get();
+        // $totalCartQuantity = Cart::where('user_id', Auth::user()->id)->sum('quantity');
+        // $totalCartPrice = Cart::where('user_id', Auth::user()->id)->sum('price');
         // // $order = Menu::where('id',$userCart->menu_id)->all();;
 
         // foreach (auth()->user()->menus as  $menu) {
@@ -29,7 +29,7 @@ class StripeController extends Controller
         // }
 
 
-
+            
         // Collect the user's menus and map them to line items for the session
         $lineItems = [];
 
@@ -52,7 +52,7 @@ class StripeController extends Controller
             'line_items'  => $lineItems,
             'mode'        => 'payment',
             'success_url' => route('success'),
-            'cancel_url'  => route('dashboard'),
+            'cancel_url'  => route('cart.index'),
         ]);
 
         // Redirect to the session URL

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Menu;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,12 +22,18 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function index () {
-        return view('Home.home');
+    public function index()
+    {
+        $menu = Menu::all();
+
+        $Menu = $menu->toArray();
+
+        shuffle($Menu);
+        return view('Home.test', compact('Menu'));
     }
-    public function test () {
-        return view('Home.test');
-    }
+    // public function test () {
+    //     return view('Home.test');
+    // }
 
     /**
      * Update the user's profile information.

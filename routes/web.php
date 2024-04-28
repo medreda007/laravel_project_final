@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 // !staff start
 Route::get('/staff', [StaffController::class, 'index'])->name('staff.index')->middleware(["role:staff|admin"]);
 Route::put('/staff/{reservation}', [StaffController::class, 'updateTable'])->name('edit.table');
+Route::delete('/staff/delete/{reservation}', [StaffController::class, 'destroy'])->name('delete.reservation');
 // !staff end
 
 
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/create/table', [AdminController::class, 'storeTable'])->name('table.create');
     Route::post('/menu/create', [AdminController::class, 'storeMenu'])->name('menu.create');
     Route::put('/menu/edit/{menu}', [AdminController::class, 'editMenu'])->name('menu.edit');
+    Route::delete('/menu/delete/{menu}', [AdminController::class, 'destroy'])->name('menu.delete');
+
+    Route::delete('/table/delete/{table}', [AdminController::class, 'destroyTable'])->name('table.delete');
 
     // promote / demote users to staff
     Route::post('/promote/{id}', [AdminController::class, 'promote'])->name('profil.promote');
@@ -66,7 +70,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/test', [ProfileController::class, 'test'])->name('home.test');
 
 // ~~ stripe route start
 Route::get('/session', [StripeController::class, 'session'])->name('stripe.session');

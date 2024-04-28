@@ -1,0 +1,176 @@
+.fifth-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: fit-content;
+    padding-bottom: 5%;
+    height: fit-content;
+
+    .carousel {
+        width: 75vw !important;
+    }
+
+    .review-pic1 {
+        border: #fff solid 8px;
+        border-radius: 50%;
+        background-image: url("{{asset(image/testimonials-2.jpg)}}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+    }
+
+    .review-pic2 {
+        border: #fff solid 8px;
+        border-radius: 50%;
+        background-image: url(../../../public/assets/image/testimonials-2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+    }
+
+    .review-pic3 {
+        border: #fff solid 8px;
+        border-radius: 50%;
+        background-image: url(../../../public/assets/image/testimonials-3.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+    }
+
+    .review-pic4 {
+        border: #fff solid 8px;
+        border-radius: 50%;
+        background-image: url(../../../public/assets/image/testimonials-4.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+        margin-bottom: 50px;
+    }
+
+    .rotated {
+        transform: scaleX(-1) !important;
+    }
+
+    .vertical-line {
+        position: relative;
+    }
+
+    .vertical-line::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -5%;
+        transform: translateX(-50%);
+        width: 4px;
+        /* Adjust the width of the line as needed */
+        height: 100%;
+        background-color: #C7AE6A;
+    }
+}
+
+.carousel-item {
+    // height: 50vh;
+    // width: 75vw;
+    padding: 10%;
+}
+
+.carousel-indicators {
+    margin: -1%;
+
+    button {
+        background-color: rgb(70, 1, 70) !important;
+        border-radius: 50% !important;
+        height: 10px !important;
+        width: 10px !important;
+    }
+}
+
+
+@media (max-width: 430px) {
+    .fifth-section {
+        padding: 10%;
+        width: fit-content;
+
+        .sec5-part1 {
+            width: 100% !important;
+
+            .vertical-line {
+                width: 100% !important;
+            }
+        }
+
+        p {
+            width: 110% !important;
+        }
+    }
+
+    .review-pic1,
+    .review-pic2,
+    .review-pic3,
+    .review-pic4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+    }
+}
+
+
+// ~~ section7
+.seventh-section {
+    height: fit-content;
+    padding-bottom: 4%;
+
+    .sec7-cards {
+        padding-inline: 5%;
+        gap: 2vw;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: 100%;
+
+            .card-hov {
+                top: 20px;
+                right: 0px;
+                z-index: 1;
+                opacity: 0;
+                background: #00000027;
+                padding: 8px;
+                border-radius: 5px;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                transition: 0.5s;
+
+                .card-hov {
+                    right: 20px;
+                    transition: 0.5s;
+                    opacity: 100%;
+                }
+            }
+
+            .sec7-img-border {
+                position: relative;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: 80%;
+                    left: 0%;
+                    background-image: url(../../../../public/images/team-shape.svg);
+                    background-repeat: no-repeat;
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.099);
+                    width: 100%;
+                    height: 23%;
+                }
+            }
+        }
+    }
+}

@@ -2,7 +2,8 @@
 
 
 @section('content')
-    <div class="p-5 grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif]">
+<section class="lg:mt-24 mt-10 flex justify-center lg:pt-14">
+    <div class="p-10 rounded grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-4xl bg-white text-[#333]">
         <div>
             <h1 class="text-3xl font-extrabold">Let's Talk</h1>
             <p class="text-sm text-gray-400 mt-3">Have some big idea or brand to develop and need help? Then reach out we'd
@@ -75,4 +76,5 @@
                 class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full">Send</button>
         </form>
     </div>
+</section>
 @endsection

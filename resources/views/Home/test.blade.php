@@ -2,207 +2,171 @@
 
 
 @section('content')
-
     {{-- caroussel && menu --}}
 
+
     <div class="">
-        @include('components.carouselMenu')
+        <section class="showcase elegant-dining">
+
+            <video width="640" height="400" muted loop autoplay>
+                <source src="{{ asset('assets/video/videoplayback.webm') }}" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="overlay"></div>
+            <div class="text font-serif">
+                <h2 class="">Indulge in Culinary Delights</h2>
+                <p>Experience an exquisite fusion of flavors crafted with the finest ingredients. Our dedicated chefs curate
+                    a menu that tantalizes the taste buds and delights the senses.</p>
+                <a href="#">Explore Our Menu</a>
+            </div>
+
+            <ul class="social social-white">
+                <li><a href="#"><img src="https://i.ibb.co/x7P24fL/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="Twitter"></a></li>
+                <li><a href="#"><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="Instagram"></a></li>
+            </ul>
+        </section>
+
     </div>
+
+    <section class="py-12">
+        <div class="flex flex-col items-center justify-center gap-2 pb-10">
+            <h6 class="  ">- Random Dishes -</h6>
+            <p class="py-2 grad-border border-t-2 border-b-2 border-black text-4xl text-center">FROM OUR MENU</p>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-8 gap-12 justify-items-center">
+            @for ($i = 0; $i < 6; $i++)
+                <div class="flex flex-col lg:flex-row justify-center items-center">
+                    <!-- width set to 16rem or 64 Tailwind units -->
+                    <div class="rounded-full w-36 h-36 lg:mr-4">
+                        <img class="rounded-s-full rounded-ee-full object-cover w-full h-full hover:rounded-e-full hover:rounded-s-none hover:rounded-bl-full delay-200 transition-all"
+                            src="{{ asset('assets/image/' . $Menu[$i]['image']) }}" alt="">
+                    </div>
+                    <div class="text-center lg:text-left mt-4 lg:mt-0 lg:w-[26rem]">
+                        <h1 class="font-semibold text-lg">{{ $Menu[$i]['name'] }} <span
+                                class="opacity-50 font-thin">.....................</span> <span
+                                class="font-normal text-[#C7AE6A]">{{ $Menu[$i]['price'] }} DHS</span></h1>
+                        <p>{{ $Menu[$i]['description'] }}</p>
+                    </div>
+                </div>
+            @endfor
+        </div>
+
+
+        </div>
+    </section>
+
+
 
 
     {{-- tables --}}
 
 
-    <div class="my-6 font-[sans-serif] text-[#333]">
+    <section class="py-12 font-serif text-[#333]">
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-2xl font-extrabold">Tables.</h2>
-                <p class="text-sm mt-2 leading-relaxed">Veniam proident aute magna anim excepteur et ex consectetur velit
-                    ullamco veniam minim aute sit.</p>
+            <div class="flex flex-col items-center justify-center gap-2 pb-10">
+                <h6 class="  ">- Tables -</h6>
+                <p class="py-2 grad-border border-t-2 border-b-2 border-black text-4xl text-center">OUR PANORAMIC VIEWS</p>
             </div>
-            <div class="grid md:grid-cols-3 md:gap-6 max-md:gap-10 max-md:justify-center text-center mt-12">
-
+            <div class="grid font-serif md:grid-cols-3 md:gap-6 max-md:gap-10 max-md:justify-center text-center  py-6 pb-16">
                 <div
-                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg font-[sans-serif] overflow-hidden mx-auto mt-4">
-                    <img src="https://readymadeui.com/cardImg.webp" class="w-full rounded-lg" />
-                    <div class="px-4 my-6 text-center">
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img src="{{ asset('assets/image/restaurant-cabestan-interieur.jpg') }}" class="w-full rounded-lg" />
+                    <div class="px-4 my-6 text-center ">
                         <h3 class="text-lg font-semibold">Heading</h3>
                         <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                             auctor auctor
                             arcu,
                             at fermentum dui. Maecenas</p>
-                        <button type="button"
-                            class="px-6 py-2 w-full mt-4 rounded-lg text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
                     </div>
                 </div>
 
                 <div
-                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg font-[sans-serif] overflow-hidden mx-auto mt-4">
-                    <img src="https://readymadeui.com/cardImg.webp" class="w-full rounded-lg" />
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img src="{{ asset('assets/image/Rick’s-Cafe-in-Casablanca-4-480x320.jpg') }}"
+                        class="w-full rounded-lg" />
                     <div class="px-4 my-6 text-center">
                         <h3 class="text-lg font-semibold">Heading</h3>
                         <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                             auctor auctor
                             arcu,
                             at fermentum dui. Maecenas</p>
-                        <button type="button"
-                            class="px-6 py-2 w-full mt-4 rounded-lg text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
                     </div>
                 </div>
 
                 <div
-                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg font-[sans-serif] overflow-hidden mx-auto mt-4">
-                    <img src="https://readymadeui.com/cardImg.webp" class="w-full rounded-lg" />
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img class="max-h-[235px] w-full rounded-lg"
+                        src="{{ asset('assets/image/qui-nguyen-Zrp9b3PMIy8-unsplash.jpg') }}" class="w-full rounded-lg" />
                     <div class="px-4 my-6 text-center">
                         <h3 class="text-lg font-semibold">Heading</h3>
                         <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                             auctor auctor
                             arcu,
                             at fermentum dui. Maecenas</p>
-                        <button type="button"
-                            class="px-6 py-2 w-full mt-4 rounded-lg text-white text-sm tracking-wider font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">View</button>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
+    </section>
 
 
-    {{-- chefs --}}
+    {{-- how --}}
 
-    <div class="my-6 font-[sans-serif] text-[#333]">
+    <section>
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-2xl font-extrabold">Chefs.</h2>
-                <p class="text-sm mt-2 leading-relaxed">Veniam proident aute magna anim excepteur et ex consectetur velit
-                    ullamco veniam minim aute sit.</p>
+            <div class="flex flex-col items-center justify-center gap-2 pb-10">
+                <h6 class="">- How -</h6>
+                <p class="py-2 grad-border border-t-2 border-b-2 border-black text-4xl text-center"><span class="grad-text">EDEN HAUL</span> SERVES YOU</p>
             </div>
-            <div class="grid md:grid-cols-3 md:gap-6 max-md:gap-10 max-md:justify-center text-center mt-12">
-
-                <div class="max-w-[350px] h-auto p-4 rounded-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <div class="flex flex-col items-center">
-                        <img src="https://readymadeui.com/team-1.webp" class="w-80 object-contain object-top rounded-md" />
-                        <div class="mt-4">
-                            <h4 class="text-sm font-extrabold">John Doe</h4>
-                            <p class="text-xs text-gray-400 font-extrabold mt-1">CEO, Company</p>
-                        </div>
-                        <div class="flex justify-center space-x-1 mt-4">
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                        </div>
+            <div class="grid md:grid-cols-3 md:gap-6 max-md:gap-10 max-md:justify-center text-center  py-6 pb-16">
+                <div
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img src="{{ asset('assets/image/delivery.jpg') }}" class="w-full rounded-lg" />
+                    <div class="px-4 my-6 text-center">
+                        <h3 class="text-lg font-semibold">Online Order</h3>
+                        <p>Enjoy our tasteful warm plates in peace you and your familly with a fast shipping service.</p>
                     </div>
-                    <div class="mt-4">
-                        <p class="text-sm leading-relaxed">The service was amazing. I never had to wait that long for my
-                            food. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
+                    <a class="h-16 flex justify-center items-center" href="{{ route('menu.index') }}">
+                        <button class="nav-btn rounded-lg p-2 ">Order</button>
+                    </a>
+                </div>
+                <div
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img src="{{ asset('assets/image/rservation.jpg') }}" class="w-full rounded-lg h-[22rem]" />
+                    <div class="px-4 my-6 text-center">
+                        <h3 class="text-lg font-semibold">Online Reservation</h3>
+                        <p>Reserve your table online to enjoy the unique experience to the fullest </p>
                     </div>
+                    <a class="h-16 flex justify-center items-center" href="{{ route('reservation.index') }}">
+                        <button class="nav-btn rounded-lg p-2 ">Reserve</button>
+                    </a>
                 </div>
 
-                <div class="max-w-[350px] h-auto p-4 rounded-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <div class="flex flex-col items-center">
-                        <img src="https://readymadeui.com/team-2.webp" class="w-80 object-contain object-top rounded-md" />
-                        <div class="mt-4">
-                            <h4 class="text-sm font-extrabold">Mark Adair</h4>
-                            <p class="text-xs text-gray-400 font-extrabold mt-1">CEO, Company</p>
-                        </div>
-                        <div class="flex justify-center space-x-1 mt-4">
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                        </div>
+                <div
+                    class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
+                    <img class="h-[22rem] w-full rounded-lg" src="{{ asset('assets/image/musicev.jpg') }}" />
+                    <div class="px-4 my-6 text-center">
+                        <h3 class="text-lg font-semibold">Events</h3>
+                        <p>Join our community to get the chance to attend music and cinematic events and to win exclusive
+                            coupons.</p>
                     </div>
-                    <div class="mt-4">
-                        <p class="text-sm leading-relaxed">The service was amazing. I never had to wait that long for my
-                            food. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-                    </div>
+                    <a class="h-16 flex justify-center items-center" href="{{ route('register') }}">
+                        <button class="nav-btn rounded-lg p-2 mb-10">Register</button>
+                    </a>
                 </div>
 
-                <div class="max-w-[350px] h-auto p-4 rounded-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <div class="flex flex-col items-center">
-                        <img src="https://readymadeui.com/team-4.webp" class="w-80 object-contain object-top rounded-md" />
-                        <div class="mt-4">
-                            <h4 class="text-sm font-extrabold">Simon Konecki</h4>
-                            <p class="text-xs text-gray-400 font-extrabold mt-1">CEO, Company</p>
-                        </div>
-                        <div class="flex justify-center space-x-1 mt-4">
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                            <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-sm leading-relaxed">The service was amazing. I never had to wait that long for my
-                            food. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
+    <!-- &&section7 -->
+    @include('components.chefsection')
+
+    {{-- testemonials --}}
+
+    <!-- &&section5 -->
 @endsection

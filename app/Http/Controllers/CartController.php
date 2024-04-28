@@ -108,9 +108,13 @@ class CartController extends Controller
 
     public function updateCartadd(Request $request, $cartId)
     {
-        dd("h");
 
-        $cart = Cart::where("menu_id", $cartId)->firstOrFail();
+        $user = Auth::user();
+        $cart = Cart::where('user_id', $user->id)
+            ->where('menu_id', $cartId)
+            ->firstOrFail();
+
+
         // foreach ($user as $key => $value) {
         //     $cart = Cart::where('user_id', Auth::id())->firstOrFail();
         //     $cart->menus()->attach($cartId);
@@ -120,6 +124,7 @@ class CartController extends Controller
         // $cart = Cart::where('user_id', Auth::id())->firstOrFail();
 
         // dd($cart->quantity);
+
 
         $cart->quantity = $cart->quantity + 1;
 
@@ -169,10 +174,7 @@ class CartController extends Controller
 
 
 
-    public function test()
-    {
-        dd("f");
-    }
+
 
 
     /**
@@ -187,7 +189,7 @@ class CartController extends Controller
     // }
     public function destroy(Request $request)
     {
-        $cart = Cart::where("menu_id", $request->test)->first();
+        $cart = Cart::where("menu_id", $request->menu_id)->first();
         $cart->delete();
         return redirect()->back();
     }
