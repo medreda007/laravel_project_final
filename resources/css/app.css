@@ -189,7 +189,7 @@ h2 {
 }
 
 .nav-btn {
-    background: linear-gradient(to right, #360164, #ede7a3, #b38728c8);
+    background: linear-gradient(to right, #bf943fbf, #ede7a3, #b38728c8);
 }
 
 
@@ -390,6 +390,6 @@ header .logo {
 }
 
 .grad-border {
-    border-image: linear-gradient(to right, #ab8438bf, #e2dc9b, #a07924c8);
+    border-image: linear-gradient(to right, #bf943fbf, #e2dc9b, #b38728c8);
     border-image-slice: 1; /* Specifies how the border is sliced */
 }
