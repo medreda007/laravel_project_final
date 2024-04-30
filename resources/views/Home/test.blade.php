@@ -163,10 +163,20 @@
     </section>
 
 
+    {{-- testemonials --}}
     <!-- &&section7 -->
     @include('components.chefsection')
 
-    {{-- testemonials --}}
 
-    <!-- &&section5 -->
+    <!-- vist us-->
+    <section class="pt-5">
+        <div class="">
+            <div class="flex flex-col items-center justify-center gap-2 pb-10">
+                <p class="py-2 grad-border border-t-2 border-b-2 border-black text-4xl text-center">VIST US<span class="grad-text"></span></p>
+            </div>
+            <div class="flex justify-center p-14">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26584.07876835446!2d-7.620405!3d33.605049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d287c1b84dd1%3A0x3976a100331c6da4!2sRick&#39;s%20Caf%C3%A9!5e0!3m2!1sen!2sma!4v1714329490848!5m2!1sen!2sma" class=" w-[90vw] h-[50vh] rounded-md" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+        </div>
+    </section>
+
 @endsection
