@@ -89,35 +89,34 @@ class AdminController extends Controller
         return redirect()->back();
     }
     public function storeMenu(Request $request)
-    {
-        //
-        request()->validate([
-            "name" => "required",
-            "price" => "required | integer",
-            "description" => "required",
-            "category" => "required|in:breakfast,lunch,dinner",
-        ]);
-        if ($request->image) {
-            $image = $request->file("image");
-            $imageName = time() . "_" . $image->getClientOriginalName();
-            $image->storeAs("public/img", $imageName);
-            Menu::create([
-                "name" => $request->name,
-                "price" => $request->price,
-                "description" => $request->description,
-                "image" => $imageName,
-                "category" => $request->category,
-            ]);
-        }
-        Menu::create([
-            "name" => $request->name,
-            "price" => $request->price,
-            "description" => $request->description,
-            "category" => $request->category,
-        ]);
+{
+    $request->validate([
+        "name" => "required",
+        "price" => "required|integer",
+        "description" => "required",
+        "category" => "required|in:breakfast,lunch,dinner",
+        "image" => "required|image"
+    ]);
 
-        return redirect()->back();
+    $data = [
+        "name" => $request->name,
+        "price" => $request->price,
+        "description" => $request->description,
+        "category" => $request->category,
+    ];
+
+    // Process image if provided
+    if ($request->hasFile('image')) {
+        $image = $request->file("image");
+        $imageName =  time() . "_" . $image->getClientOriginalName();
+        $image->storeAs("public/img", $imageName);
+        $data["image"] = 'storage/img/' . $imageName;
     }
+
+    Menu::create($data);
+
+    return redirect()->back();
+}
 
     /**
      * Display the specified resource.

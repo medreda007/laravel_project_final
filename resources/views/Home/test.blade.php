@@ -18,7 +18,10 @@
                 <h2 class="">Indulge in Culinary Delights</h2>
                 <p>Experience an exquisite fusion of flavors crafted with the finest ingredients. Our dedicated chefs curate
                     a menu that tantalizes the taste buds and delights the senses.</p>
-                <a href="#">Explore Our Menu</a>
+                    <div class="flex flex-col w-fit">
+                        <a href="{{ route('menu.index') }}">Explore Our Menu</a>
+                        <a class="w-fit" href="{{ route('reservation.index') }}">book a table</a>
+                    </div>
             </div>
 
             <ul class="social social-white">
@@ -41,7 +44,7 @@
                     <!-- width set to 16rem or 64 Tailwind units -->
                     <div class="rounded-full w-36 h-36 lg:mr-4">
                         <img class="rounded-s-full rounded-ee-full object-cover w-full h-full hover:rounded-e-full hover:rounded-s-none hover:rounded-bl-full delay-200 transition-all"
-                            src="{{ asset('assets/image/' . $Menu[$i]['image']) }}" alt="">
+                            src="{{ asset( $Menu[$i]['image']) }}" alt="">
                     </div>
                     <div class="text-center lg:text-left mt-4 lg:mt-0 lg:w-[26rem]">
                         <h1 class="font-semibold text-lg">{{ $Menu[$i]['name'] }} <span
@@ -74,11 +77,8 @@
                     class="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg  overflow-hidden mx-auto mt-4">
                     <img src="{{ asset('assets/image/restaurant-cabestan-interieur.jpg') }}" class="w-full rounded-lg" />
                     <div class="px-4 my-6 text-center ">
-                        <h3 class="text-lg font-semibold">Heading</h3>
-                        <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                            auctor auctor
-                            arcu,
-                            at fermentum dui. Maecenas</p>
+                        <h3 class="text-lg font-semibold">The ocean view</h3>
+                        <p class="mt-2 text-sm text-gray-400">Eden Haul features stunning ocean views that enhance your dining experience. Enjoy delicious meals while enjoying the serene beauty of the waves crashing on the beach.</p>
                     </div>
                 </div>
 
@@ -87,11 +87,8 @@
                     <img src="{{ asset('assets/image/Rick’s-Cafe-in-Casablanca-4-480x320.jpg') }}"
                         class="w-full rounded-lg" />
                     <div class="px-4 my-6 text-center">
-                        <h3 class="text-lg font-semibold">Heading</h3>
-                        <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                            auctor auctor
-                            arcu,
-                            at fermentum dui. Maecenas</p>
+                        <h3 class="text-lg font-semibold">The main haul</h3>
+                        <p class="mt-2 text-sm text-gray-400">Eden Haul's main dining hall is a stunning space that combines elegance with a cozy atmosphere. The hall's design blends classic aesthetics with a warm, welcoming touch, ensuring every visit is a memorable experience.</p>
                     </div>
                 </div>
 
@@ -100,11 +97,8 @@
                     <img class="max-h-[235px] w-full rounded-lg"
                         src="{{ asset('assets/image/qui-nguyen-Zrp9b3PMIy8-unsplash.jpg') }}" class="w-full rounded-lg" />
                     <div class="px-4 my-6 text-center">
-                        <h3 class="text-lg font-semibold">Heading</h3>
-                        <p class="mt-2 text-sm text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                            auctor auctor
-                            arcu,
-                            at fermentum dui. Maecenas</p>
+                        <h3 class="text-lg font-semibold">The bar</h3>
+                        <p class="mt-2 text-sm text-gray-400">Eden Haul's bar offers a curated selection of cocktails and fine wines, perfect for enjoying a drink while listning to the music. The bar's ambiance is both inviting and sophisticated, providing the ideal setting for a relaxing evening.</p>
                     </div>
                 </div>
 

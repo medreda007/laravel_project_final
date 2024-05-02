@@ -57,7 +57,7 @@ class ReservationController extends Controller
                 "start" => $start,
                 "end" => $end,
                 "title" => $event->table_id,
-                "color" => "#27004a",
+                "color" => "#262626",
             ];
         });     
 

@@ -37,7 +37,7 @@
                 <p class="lg:w-[50vw] lg:px-16">Music is an integral part of the Eden Haul experience, enhancing the
                     atmosphere and transporting guests
                     to heaven. Issam Chabaa's piano performances and jazz sessions enrich
-                    Rick's Café's atmosphere, harmonizing with elegant interiors and making music a vital part of the
+                    Eden's atmosphere, harmonizing with elegant interiors and making music a vital part of the
                     overall experience.</p>
             </div>
         </div>

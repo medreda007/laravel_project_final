@@ -38,7 +38,7 @@
                                 @foreach ($Breakfast as $breakfast)
                                     <div
                                         class="card bg-gray-100 rounded-xl p-6 flex flex-col w-80 hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                                        <img src="{{ asset('assets/image/' . $breakfast->image) }}" alt="Product 1"
+                                        <img src="{{ asset( $breakfast->image) }}" alt="Product 1"
                                             class="card-img-top w-full h-64 object-cover rounded-t-lg" />
                                         <div class="card-body text-center mt-4">
                                             <h3 class="text-lg font-bold">{{ $breakfast->name }}</h3>
@@ -105,7 +105,7 @@
                                 @foreach ($Lunch as $lunch)
                                     <div
                                         class="card bg-gray-100 rounded-xl p-6 flex flex-col w-80 hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                                        <img src="{{ asset('assets/image/' . $lunch->image) }}" alt="Product 1"
+                                        <img src="{{ asset( $lunch->image) }}" alt="Product 1"
                                             class="card-img-top w-full h-64 object-cover rounded-t-lg" />
                                         <div class="card-body text-center mt-4">
                                             <h3 class="text-lg font-bold">{{ $lunch->name }}</h3>
@@ -172,7 +172,7 @@
                                 @foreach ($Dinner as $dinner)
                                     <div
                                         class="card bg-gray-100 rounded-xl p-6 flex flex-col w-80 hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                                        <img src="{{ asset('assets/image/' . $dinner->image) }}" alt="Product 1"
+                                        <img src="{{ asset( $dinner->image) }}" alt="Product 1"
                                             class="card-img-top w-full h-64 object-cover rounded-t-lg" />
                                         <div class="card-body text-center mt-4">
                                             <h3 class="text-lg font-bold">{{ $dinner->name }}</h3>

@@ -9,11 +9,13 @@
         <script>
             document.addEventListener('DOMContentLoaded', async function() {
 
-                const {data} = await axios.get("/calendar/show")
+                const {
+                    data
+                } = await axios.get("/calendar/show")
                 // console.log(data);
                 // console.log(data.reservations);
 
-                const events = data.reservations; 
+                const events = data.reservations;
 
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -54,7 +56,7 @@
                     selectMirror: true,
                     selectOverlap: true,
                     weekends: true,
-                    events : events,
+                    events: events,
 
                     selectAllow: (info) => {
                         let instant = new Date()
@@ -114,5 +116,14 @@
                 }
             });
         </script>
+    </div>
+    <div class="bg-background rounded-lg border border-gray-200 p-20 flex flex-col justify-center items-center">
+        <h2 class="text-xl font-semibold mb-4">Table réserver</h2>
+        @foreach (auth()->user()->reservations as $item)
+            <div class="bg-neutral-800 text-white rounded-md p-3 mb-2 lg:w-[80vw]">
+                <h3 class="text-lg font-semibold">{{ $item->table->table_number }}</h3>
+                <p class="">{{ $item->timeStart }}</p>
+            </div>
+        @endforeach
     </div>
 @endsection
